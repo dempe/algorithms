@@ -17,4 +17,14 @@ public class Math {
     public static boolean isNegative(final int n) {
         return n < 0;
     }
+
+    public static boolean isPrime(final long n) {
+        for (long i = 2; i <= n / i; i++) {
+            if (n % i == 0) {
+                return false;
+            }
+        }
+
+        return true;
+    }
 }

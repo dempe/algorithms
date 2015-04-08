@@ -1,5 +1,7 @@
 package com.project.euler.problems;
 
+import com.gs.collections.api.list.MutableList;
+import com.gs.collections.impl.factory.Lists;
 import com.project.euler.AbstractBaseResult;
 import com.project.euler.Problem;
 import com.project.euler.Result;
@@ -10,29 +12,26 @@ import static com.project.euler.util.Math.isPrime;
 
 @Lazy
 @Component
-public class Problem0003 implements Problem {
-    private static final long NUMBER = 600851475143L;
+public class Problem0007 implements Problem {
+    private static final int MAX = 10001;
 
     @Override
     public Result solve() {
         return new ResultImpl();
     }
 
-    private static long findLargestPrimeFactor(final long number) {
-        for (long i = 2; i <= number / i; i++) {
-            if (i % number == 0) {
-                final long factor = number / i;
-                return isPrime(factor) ? factor : findLargestPrimeFactor(factor);
-            }
-        }
-
-        return number;
-    }
-
     private static class ResultImpl extends AbstractBaseResult {
         @Override
         public Number naively() {
-            return findLargestPrimeFactor(NUMBER);
+            final MutableList<Integer> primes = Lists.mutable.of(2, 3);
+
+            for (int i = 4; i < Integer.MAX_VALUE && primes.size() < MAX; i++) {
+                if (isPrime(i)) {
+                    primes.add(i);
+                }
+            }
+
+            return primes.getLast();
         }
 
         @Override
@@ -40,5 +39,4 @@ public class Problem0003 implements Problem {
             return null;
         }
     }
-
 }
