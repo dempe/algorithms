@@ -7,10 +7,10 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class TestProblem0002 implements TestProblem {
-    private static final long ANSWER = 4613732;
+public class TestProblem0005 implements TestProblem {
+    private static final long ANSWER = 232792560;
 
-    private final Problem problem = new Problem0002();
+    private final Problem problem = new Problem0005();
 
     @Test
     @Override
