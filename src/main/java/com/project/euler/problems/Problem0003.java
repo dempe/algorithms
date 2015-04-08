@@ -28,7 +28,7 @@ public class Problem0003 implements Problem {
     }
 
     public static boolean isPrime(long n) {
-        for (long i = 2; i < (n / i); i++) {
+        for (long i = 2; i < n / i; i++) {
             if (i % n == 0) {
                 return false;
             }
