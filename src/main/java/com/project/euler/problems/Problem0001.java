@@ -9,6 +9,10 @@ import org.springframework.stereotype.Component;
 import static com.project.euler.util.Math.isNegative;
 import static com.project.euler.util.Math.sumIntegersTill;
 
+/**
+ * If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
+ * Find the sum of all the multiples of 3 or 5 below 1000.
+ */
 @Lazy
 @Component
 public class Problem0001 implements Problem {
@@ -44,12 +48,14 @@ public class Problem0001 implements Problem {
         @Override
         public Number nonNaively() {
             final int fizzBuzzProduct = FIZZ * BUZZ;  //don't count coincidences twice
+
             final int numberOfTimesDivisibleByFizz = (NUMBER - 1) / FIZZ;  //subtract 1, b/c problem specifies strictly *below* 1000
             final int numberOfTimesDivisibleByBuzz = (NUMBER - 1) / BUZZ;
             final int numberOfTimesDivisibleByProduct = (NUMBER - 1) / fizzBuzzProduct;
-            final int fizzSum = (sumIntegersTill(isNegative(numberOfTimesDivisibleByFizz) ? 0 : numberOfTimesDivisibleByFizz) * FIZZ);  //if not divisible, result could be negative - check & set to 0 if so
-            final int buzzSum = (sumIntegersTill(isNegative(numberOfTimesDivisibleByBuzz) ? 0 : numberOfTimesDivisibleByBuzz) * BUZZ);
-            final int prodSum = (sumIntegersTill(isNegative(numberOfTimesDivisibleByProduct) ? 0 : numberOfTimesDivisibleByProduct) * fizzBuzzProduct);
+
+            final int fizzSum = (sumIntegersTill(isNegative.test(numberOfTimesDivisibleByFizz) ? 0 : numberOfTimesDivisibleByFizz) * FIZZ);  //if not divisible, result could be negative - check & set to 0 if so
+            final int buzzSum = (sumIntegersTill(isNegative.test(numberOfTimesDivisibleByBuzz) ? 0 : numberOfTimesDivisibleByBuzz) * BUZZ);
+            final int prodSum = (sumIntegersTill(isNegative.test(numberOfTimesDivisibleByProduct) ? 0 : numberOfTimesDivisibleByProduct) * fizzBuzzProduct);
 
             return fizzSum + buzzSum - prodSum;
         }

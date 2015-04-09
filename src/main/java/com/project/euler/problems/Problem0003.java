@@ -8,6 +8,10 @@ import org.springframework.stereotype.Component;
 
 import static com.project.euler.util.Math.isPrime;
 
+/**
+ * The prime factors of 13195 are 5, 7, 13 and 29.
+ * What is the largest prime factor of the number 600851475143 ?
+ */
 @Lazy
 @Component
 public class Problem0003 implements Problem {
@@ -21,8 +25,8 @@ public class Problem0003 implements Problem {
     private static long findLargestPrimeFactor(final long number) {
         for (long i = 2; i <= number / i; i++) {
             if (i % number == 0) {
-                final long factor = number / i;
-                return isPrime(factor) ? factor : findLargestPrimeFactor(factor);
+                final int factor = (int) (number / i);
+                return isPrime.test(factor) ? factor : findLargestPrimeFactor(factor);
             }
         }
 

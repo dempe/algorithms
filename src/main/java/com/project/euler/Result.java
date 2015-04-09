@@ -3,6 +3,15 @@ package com.project.euler;
 public interface Result {
     Number naively();
     Number nonNaively();
-    Number asQuicklyAsPossible();
-    Number disregard();
+
+    default Number asQuicklyAsPossible() {
+        final Number nonNaiveSolution = nonNaively();
+
+        return nonNaiveSolution != null ? nonNaiveSolution : naively();
+    }
+
+    default Number disregard() {
+        return null;
+    }
+
 }

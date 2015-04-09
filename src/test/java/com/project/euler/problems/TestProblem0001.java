@@ -13,13 +13,13 @@ public class TestProblem0001 implements TestProblem {
 
     @Test
     @Override
-    public void testNaive() {
+    public void testNaively() {
         assertEquals(ANSWER, problem.solve().naively().longValue());
     }
 
     @Test
     @Override
-    public void testNonNaive() {
+    public void testNonNaively() {
         assertEquals(ANSWER, problem.solve().nonNaively().longValue());
     }
 }

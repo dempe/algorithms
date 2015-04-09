@@ -1,5 +1,7 @@
 package com.project.euler.util;
 
+import java.util.function.Predicate;
+
 public class Math {
 
     public static int sumIntegersInRange(final int start, final int end) {
@@ -14,17 +16,23 @@ public class Math {
         return (n + 1) * n / 2;
     }
 
-    public static boolean isNegative(final int n) {
-        return n < 0;
-    }
-
-    public static boolean isPrime(final long n) {
-        for (long i = 2; i <= n / i; i++) {
-            if (n % i == 0) {
-                return false;
-            }
+    public static final Predicate<Integer> isNegative = new Predicate<Integer>() {
+        @Override
+        public boolean test(Integer n) {
+            return n < 0;
         }
+    };
 
-        return true;
-    }
+    public static final Predicate<Integer> isPrime = new Predicate<Integer>() {
+        @Override
+        public boolean test(Integer n) {
+            for (int i = 2; i <= n / i; i++) {
+                if (n % i == 0) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+    };
 }
