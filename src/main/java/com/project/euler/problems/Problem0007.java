@@ -8,7 +8,7 @@ import com.project.euler.Result;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
-import static com.project.euler.util.Math.isPrime;
+import static com.project.euler.util.Math.IS_PRIME;
 
 /**
  * By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that the 6th prime is 13.
@@ -30,7 +30,7 @@ public class Problem0007 implements Problem {
             final MutableList<Integer> primes = Lists.mutable.of(2, 3);
 
             for (int i = 4; i < Integer.MAX_VALUE && primes.size() < MAX; i++) {
-                if (isPrime.test(i)) {
+                if (IS_PRIME.test(i)) {
                     primes.add(i);
                 }
             }

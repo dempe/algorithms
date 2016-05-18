@@ -6,7 +6,6 @@ import com.project.euler.Result;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
-import static com.project.euler.util.Math.isNegative;
 import static com.project.euler.util.Math.sumIntegersTill;
 
 /**
@@ -16,9 +15,9 @@ import static com.project.euler.util.Math.sumIntegersTill;
 @Lazy
 @Component
 public class Problem0001 implements Problem {
-    private static int NUMBER = 1000;
-    private static int FIZZ = 3;
-    private static int BUZZ = 5;
+    private static final int TARGET_NUMBER = 1000;
+    private static final int FIZZ = 3;
+    private static final int BUZZ = 5;
 
     @Override
     public Result solve() {
@@ -30,7 +29,7 @@ public class Problem0001 implements Problem {
         public Number naively() {
             int result = 0;
 
-            for (int i = 0; i < NUMBER; i++) {
+            for (int i = 0; i < TARGET_NUMBER; i++) {
                 if (i % FIZZ == 0 || i % BUZZ == 0) {
                     result += i;
                 }
@@ -49,13 +48,13 @@ public class Problem0001 implements Problem {
         public Number nonNaively() {
             final int fizzBuzzProduct = FIZZ * BUZZ;  //don't count coincidences twice
 
-            final int numberOfTimesDivisibleByFizz = (NUMBER - 1) / FIZZ;  //subtract 1, b/c problem specifies strictly *below* 1000
-            final int numberOfTimesDivisibleByBuzz = (NUMBER - 1) / BUZZ;
-            final int numberOfTimesDivisibleByProduct = (NUMBER - 1) / fizzBuzzProduct;
+            final int numberOfTimesDivisibleByFizz = (TARGET_NUMBER - 1) / FIZZ;  //subtract 1, b/c problem specifies strictly *below* 1000
+            final int numberOfTimesDivisibleByBuzz = (TARGET_NUMBER - 1) / BUZZ;
+            final int numberOfTimesDivisibleByProduct = (TARGET_NUMBER - 1) / fizzBuzzProduct;
 
-            final int fizzSum = (sumIntegersTill(isNegative.test(numberOfTimesDivisibleByFizz) ? 0 : numberOfTimesDivisibleByFizz) * FIZZ);  //if not divisible, result could be negative - check & set to 0 if so
-            final int buzzSum = (sumIntegersTill(isNegative.test(numberOfTimesDivisibleByBuzz) ? 0 : numberOfTimesDivisibleByBuzz) * BUZZ);
-            final int prodSum = (sumIntegersTill(isNegative.test(numberOfTimesDivisibleByProduct) ? 0 : numberOfTimesDivisibleByProduct) * fizzBuzzProduct);
+            final int fizzSum = sumIntegersTill(numberOfTimesDivisibleByFizz) * FIZZ;  //if not divisible, result could be negative - check & set to 0 if so
+            final int buzzSum = sumIntegersTill(numberOfTimesDivisibleByBuzz) * BUZZ;
+            final int prodSum = sumIntegersTill(numberOfTimesDivisibleByProduct) * fizzBuzzProduct;
 
             return fizzSum + buzzSum - prodSum;
         }

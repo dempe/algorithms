@@ -6,7 +6,7 @@ import com.project.euler.Result;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
-import static com.project.euler.util.Math.isPrime;
+import static com.project.euler.util.Math.IS_PRIME;
 
 /**
  * The prime factors of 13195 are 5, 7, 13 and 29.
@@ -22,17 +22,6 @@ public class Problem0003 implements Problem {
         return new ResultImpl();
     }
 
-    private static long findLargestPrimeFactor(final long number) {
-        for (long i = 2; i <= number / i; i++) {
-            if (i % number == 0) {
-                final int factor = (int) (number / i);
-                return isPrime.test(factor) ? factor : findLargestPrimeFactor(factor);
-            }
-        }
-
-        return number;
-    }
-
     private static class ResultImpl extends AbstractBaseResult {
         @Override
         public Number naively() {
@@ -42,6 +31,17 @@ public class Problem0003 implements Problem {
         @Override
         public Number nonNaively() {
             return null;
+        }
+
+        private static long findLargestPrimeFactor(final long number) {
+            for (long i = 2; i <= number / i; i++) {
+                if (i % number == 0) {
+                    final long factor = number / i;
+                    return IS_PRIME.test(factor) ? factor : findLargestPrimeFactor(factor);
+                }
+            }
+
+            return number;
         }
     }
 

@@ -3,9 +3,13 @@ package com.project.euler;
 import com.project.euler.configuration.ApplicationContextLoader;
 import com.project.euler.configuration.Configuration;
 
+import java.util.AbstractMap;
 import java.util.Map;
+import java.util.function.Function;
 
 public class Main {
+    private static final Function<Map.Entry<String, Problem>, Map.Entry<String, Number>> PROBLEM_SOLVER =
+            problemEntry -> new AbstractMap.SimpleEntry<>(problemEntry.getKey(), problemEntry.getValue().solve().asQuicklyAsPossible());
 
     public static void main(String[] args) {
         final long startTime = System.currentTimeMillis();
@@ -13,24 +17,11 @@ public class Main {
         ApplicationContextLoader.loadConfigurations(Configuration.class)
                                 .getBeansOfType(Problem.class)
                                 .entrySet()
-                                .parallelStream()
-                                .map(ProblemSolver::new)
-                                .forEach(p -> p.run());
+                                .stream()
+                                .map(PROBLEM_SOLVER)
+                                .forEach(p -> System.out.println(p.getKey() + ":  " + p.getValue()));
 
         final long executionTime = System.currentTimeMillis() - startTime;
         System.out.println("Total execution time:  " + executionTime);
-    }
-
-    private static class ProblemSolver implements Runnable {
-        private final Map.Entry<String, Problem> problem;
-
-        private ProblemSolver(Map.Entry<String, Problem> problem) {
-            this.problem = problem;
-        }
-
-        @Override
-        public void run() {
-            System.out.println(problem.getKey() + ":  " + problem.getValue().solve().asQuicklyAsPossible());
-        }
     }
 }

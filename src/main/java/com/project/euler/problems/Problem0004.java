@@ -25,18 +25,6 @@ public class Problem0004 implements Problem {
         return new ResultImpl();
     }
 
-    private static boolean isPalindrome(final String str) {
-        if (isBlank(str)) { return true; }
-
-        final int len = str.length();
-        if (len == 1) { return true; }
-
-        char a = str.charAt(0);
-        char b = str.charAt(len - 1);
-
-        return a != b ? false : isPalindrome(str.substring(1, len - 1));
-    }
-
     private static class ResultImpl extends AbstractBaseResult {
         @Override
         public Number naively() {
@@ -58,6 +46,18 @@ public class Problem0004 implements Problem {
         @Override
         public Number nonNaively() {
             return null;
+        }
+
+        private static boolean isPalindrome(final String str) {
+            if (isBlank(str)) { return true; }
+
+            final int len = str.length();
+            if (len == 1) { return true; }
+
+            final int firstChar = (int) str.charAt(0);
+            final int lastChar  = (int) str.charAt(len - 1);
+
+            return firstChar == lastChar && isPalindrome(str.substring(1, len - 1));
         }
     }
 }

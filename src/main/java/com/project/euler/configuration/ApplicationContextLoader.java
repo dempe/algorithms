@@ -5,6 +5,8 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 public class ApplicationContextLoader {
 
+    private ApplicationContextLoader() {}
+
     public static ApplicationContext loadConfigurations(final Class<?>... annotatedClasses) {
         final AnnotationConfigApplicationContext annotationConfigApplicationContext = new AnnotationConfigApplicationContext();
 

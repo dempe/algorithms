@@ -16,23 +16,13 @@ public class Math {
         return (n + 1) * n / 2;
     }
 
-    public static final Predicate<Integer> isNegative = new Predicate<Integer>() {
-        @Override
-        public boolean test(Integer n) {
-            return n < 0;
-        }
-    };
-
-    public static final Predicate<Integer> isPrime = new Predicate<Integer>() {
-        @Override
-        public boolean test(Integer n) {
-            for (int i = 2; i <= n / i; i++) {
-                if (n % i == 0) {
-                    return false;
-                }
+    public static final Predicate<Long> IS_PRIME = n -> {
+        for (long i = 2L; i <= n / i; i++) {
+            if (n % i == 0L) {
+                return false;
             }
-
-            return true;
         }
+
+        return true;
     };
 }

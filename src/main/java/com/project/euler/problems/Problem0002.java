@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
 public class Problem0002 implements Problem {
     private static final int START_1 = 1;
     private static final int START_2 = 2;
-    private static final int MAX = 4000000;
+    private static final int SEQUENCE_LIMIT = 4000000;
 
     @Override
     public Result solve() {
@@ -33,7 +33,7 @@ public class Problem0002 implements Problem {
             int prev = START_2;
             int next;
 
-            while ((next = prevPrev + prev) <= MAX) {
+            while ((next = prevPrev + prev) <= SEQUENCE_LIMIT) {
                 fibs.add(next);
                 prevPrev = prev;
                 prev = next;
