@@ -1,4 +1,4 @@
-package com.project.euler;
+package com.chrisdempewolf.projecteuler;
 
 public abstract class AbstractBaseResult implements Result {
 

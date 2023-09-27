@@ -1,10 +1,10 @@
-package com.project.euler.problems;
+package com.chrisdempewolf.projecteuler.problems;
 
 import com.gs.collections.api.list.MutableList;
 import com.gs.collections.impl.list.mutable.FastList;
-import com.project.euler.AbstractBaseResult;
-import com.project.euler.Problem;
-import com.project.euler.Result;
+import com.chrisdempewolf.projecteuler.AbstractBaseResult;
+import com.chrisdempewolf.projecteuler.Problem;
+import com.chrisdempewolf.projecteuler.Result;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 

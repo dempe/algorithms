@@ -1,7 +1,7 @@
-package com.project.euler.problems;
+package com.chrisdempewolf.projecteuler.problems;
 
-import com.project.euler.Problem;
-import com.project.euler.TestProblem;
+import com.chrisdempewolf.projecteuler.Problem;
+import com.chrisdempewolf.projecteuler.TestProblem;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

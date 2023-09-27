@@ -1,4 +1,4 @@
-package com.project.euler.configuration;
+package com.chrisdempewolf.projecteuler.configuration;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;

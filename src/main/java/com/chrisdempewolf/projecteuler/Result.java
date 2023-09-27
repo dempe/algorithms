@@ -1,4 +1,4 @@
-package com.project.euler;
+package com.chrisdempewolf.projecteuler;
 
 public interface Result {
     Number naively();

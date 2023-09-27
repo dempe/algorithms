@@ -1,16 +1,16 @@
-package com.project.euler.problems;
+package com.chrisdempewolf.projecteuler.problems;
 
-import com.project.euler.Problem;
-import com.project.euler.TestProblem;
+import com.chrisdempewolf.projecteuler.Problem;
+import com.chrisdempewolf.projecteuler.TestProblem;
 import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class TestProblem0004 implements TestProblem {
-    private static final long ANSWER = 906609;
+public class TestProblem0005 implements TestProblem {
+    private static final long ANSWER = 232792560;
 
-    private final Problem problem = new Problem0004();
+    private final Problem problem = new Problem0005();
 
     @Test
     @Override

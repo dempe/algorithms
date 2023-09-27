@@ -1,12 +1,12 @@
-package com.project.euler.problems;
+package com.chrisdempewolf.projecteuler.problems;
 
-import com.project.euler.AbstractBaseResult;
-import com.project.euler.Problem;
-import com.project.euler.Result;
+import com.chrisdempewolf.projecteuler.AbstractBaseResult;
+import com.chrisdempewolf.projecteuler.Problem;
+import com.chrisdempewolf.projecteuler.Result;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
-import static com.project.euler.util.Math.IS_PRIME;
+import static com.chrisdempewolf.projecteuler.util.Math.IS_PRIME;
 
 /**
  * The prime factors of 13195 are 5, 7, 13 and 29.

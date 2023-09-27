@@ -1,4 +1,4 @@
-package com.project.euler.util;
+package com.chrisdempewolf.projecteuler.util;
 
 import java.util.function.Predicate;
 

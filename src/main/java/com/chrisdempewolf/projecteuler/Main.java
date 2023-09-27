@@ -1,7 +1,7 @@
-package com.project.euler;
+package com.chrisdempewolf.projecteuler;
 
-import com.project.euler.configuration.ApplicationContextLoader;
-import com.project.euler.configuration.Configuration;
+import com.chrisdempewolf.projecteuler.configuration.ApplicationContextLoader;
+import com.chrisdempewolf.projecteuler.configuration.Configuration;
 
 import java.util.AbstractMap;
 import java.util.Map;
