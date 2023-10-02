@@ -3,8 +3,6 @@ package com.chrisdempewolf.projecteuler.problems;
 import com.chrisdempewolf.projecteuler.AbstractBaseResult;
 import com.chrisdempewolf.projecteuler.Problem;
 import com.chrisdempewolf.projecteuler.Result;
-import org.springframework.context.annotation.Lazy;
-import org.springframework.stereotype.Component;
 
 import static com.chrisdempewolf.projecteuler.util.Math.sumIntegersInRange;
 
@@ -20,8 +18,6 @@ import static com.chrisdempewolf.projecteuler.util.Math.sumIntegersInRange;
 
  Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
  */
-@Lazy
-@Component
 public class Problem0006 implements Problem {
     private static final int MAX = 100;
 

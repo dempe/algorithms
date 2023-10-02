@@ -5,8 +5,6 @@ import com.gs.collections.impl.list.mutable.FastList;
 import com.chrisdempewolf.projecteuler.AbstractBaseResult;
 import com.chrisdempewolf.projecteuler.Problem;
 import com.chrisdempewolf.projecteuler.Result;
-import org.springframework.context.annotation.Lazy;
-import org.springframework.stereotype.Component;
 
 import static org.apache.commons.lang3.StringUtils.isBlank;
 
@@ -14,8 +12,6 @@ import static org.apache.commons.lang3.StringUtils.isBlank;
  * A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.
  * Find the largest palindrome made from the product of two 3-digit numbers.
  */
-@Lazy
-@Component
 public class Problem0004 implements Problem {
     private static final int MAX = 999;
     private static final int MIN = 100;

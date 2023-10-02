@@ -3,8 +3,6 @@ package com.chrisdempewolf.projecteuler.problems;
 import com.chrisdempewolf.projecteuler.AbstractBaseResult;
 import com.chrisdempewolf.projecteuler.Problem;
 import com.chrisdempewolf.projecteuler.Result;
-import org.springframework.context.annotation.Lazy;
-import org.springframework.stereotype.Component;
 
 import static com.chrisdempewolf.projecteuler.util.Math.sumIntegersTill;
 
@@ -12,8 +10,6 @@ import static com.chrisdempewolf.projecteuler.util.Math.sumIntegersTill;
  * If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
  * Find the sum of all the multiples of 3 or 5 below 1000.
  */
-@Lazy
-@Component
 public class Problem0001 implements Problem {
     private static final int TARGET_NUMBER = 1000;
     private static final int FIZZ = 3;

@@ -1,10 +1,10 @@
 package com.chrisdempewolf.projecteuler.problems;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import com.chrisdempewolf.projecteuler.Problem;
 import com.chrisdempewolf.projecteuler.TestProblem;
-import org.junit.Test;
-
-import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.Test;
 
 public class TestProblem0001 implements TestProblem {
     private static final int ANSWER = 233168;

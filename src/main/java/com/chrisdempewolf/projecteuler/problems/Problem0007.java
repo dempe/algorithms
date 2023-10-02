@@ -5,8 +5,6 @@ import com.gs.collections.impl.factory.Lists;
 import com.chrisdempewolf.projecteuler.AbstractBaseResult;
 import com.chrisdempewolf.projecteuler.Problem;
 import com.chrisdempewolf.projecteuler.Result;
-import org.springframework.context.annotation.Lazy;
-import org.springframework.stereotype.Component;
 
 import static com.chrisdempewolf.projecteuler.util.Math.IS_PRIME;
 
@@ -14,8 +12,6 @@ import static com.chrisdempewolf.projecteuler.util.Math.IS_PRIME;
  * By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that the 6th prime is 13.
  * What is the 10 001st prime number?
  */
-@Lazy
-@Component
 public class Problem0007 implements Problem {
     private static final int MAX = 10001;
 

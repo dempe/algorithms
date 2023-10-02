@@ -1,27 +1,32 @@
 package com.chrisdempewolf.projecteuler;
 
-import com.chrisdempewolf.projecteuler.configuration.ApplicationContextLoader;
-import com.chrisdempewolf.projecteuler.configuration.Configuration;
-
-import java.util.AbstractMap;
-import java.util.Map;
-import java.util.function.Function;
+import com.chrisdempewolf.projecteuler.problems.Problem0001;
+import com.chrisdempewolf.projecteuler.problems.Problem0002;
+import com.chrisdempewolf.projecteuler.problems.Problem0003;
+import com.chrisdempewolf.projecteuler.problems.Problem0004;
+import com.chrisdempewolf.projecteuler.problems.Problem0005;
+import com.chrisdempewolf.projecteuler.problems.Problem0006;
+import com.chrisdempewolf.projecteuler.problems.Problem0007;
+import java.util.Arrays;
+import java.util.List;
 
 public class Main {
-    private static final Function<Map.Entry<String, Problem>, Map.Entry<String, Number>> PROBLEM_SOLVER =
-            problemEntry -> new AbstractMap.SimpleEntry<>(problemEntry.getKey(), problemEntry.getValue().solve().asQuicklyAsPossible());
+    private static final List<Problem> PROBLEMS = Arrays.asList(new Problem0001(),
+                                                                new Problem0002(),
+                                                                new Problem0003(),
+                                                                new Problem0004(),
+                                                                new Problem0005(),
+                                                                new Problem0006(),
+                                                                new Problem0007());
 
     public static void main(String[] args) {
-        final long startTime = System.currentTimeMillis();
+        for (final Problem problem : PROBLEMS) {
+            final String name = problem.getClass().getName();
+            final long start = System.currentTimeMillis();
+            final Number answer = problem.solve().asQuicklyAsPossible();
+            final long runtime = System.currentTimeMillis() - start;
 
-        ApplicationContextLoader.loadConfigurations(Configuration.class)
-                                .getBeansOfType(Problem.class)
-                                .entrySet()
-                                .stream()
-                                .map(PROBLEM_SOLVER)
-                                .forEach(p -> System.out.println(p.getKey() + ":  " + p.getValue()));
-
-        final long executionTime = System.currentTimeMillis() - startTime;
-        System.out.println("Total execution time:  " + executionTime);
+            System.out.println(name + " = " + answer + ". Solved in " + runtime + " millis.");
+        }
     }
 }
