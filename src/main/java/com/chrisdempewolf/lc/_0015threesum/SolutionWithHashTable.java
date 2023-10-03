@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.Set;
 
 
-public class Solution {
+public class SolutionWithHashTable {
 
     public List<List<Integer>> threeSum(int[] nums) {
         final Map<Integer, List<Integer>> memo           = buildMap(nums);
@@ -56,11 +56,10 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-        final Solution solution = new Solution();
+        final SolutionWithHashTable solution = new SolutionWithHashTable();
         System.out.println(solution.threeSum(new int[]{-1,0,1,2,-1,-4}));
         System.out.println(solution.threeSum(new int[]{0,1,1}));
         System.out.println(solution.threeSum(new int[]{0,0,0}));
-        System.out.println(
     }
 
 }
